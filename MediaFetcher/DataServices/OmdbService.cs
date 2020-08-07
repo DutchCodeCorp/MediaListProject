@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaFetcher.DataServices
 {
-    public class OmdbService : IDataService<Movie>
+    public class OmdbService : IDataService<Movie, ShortMovie>
     {
         private static HttpClient Client = new HttpClient();
         public string GetKey() => ConfigurationHandler.GetConfigValue("OmdbKey");
@@ -20,9 +20,18 @@ namespace MediaFetcher.DataServices
                 : null;
         }
 
-        public Task<Movie[]> GetByName(string name)
+        public async Task<PaginatedSearchResults<ShortMovie>> GetByName(string name, int page_number = 1)
         {
-            throw new System.NotImplementedException();
+            HttpResponseMessage message = await Client.GetAsync(GetBaseUrl() + $"&s={name}&type=movie&page={page_number}");
+
+            if (message.Content.Headers.ContentLength > 100)
+            {
+                var result = JsonSerializer.Deserialize<PaginatedSearchResults<ShortMovie>>(await message.Content.ReadAsStringAsync());
+                result.CurrentPage = page_number;
+                return result;
+            }
+
+            return null;
         }
     }
 }
