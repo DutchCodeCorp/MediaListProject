@@ -9,12 +9,4 @@
         public string Plot { get; set; }
         public string Production { get; set; }
     }
-
-    public class ShortMovie
-    {
-        public string imdbID { get; set; }
-        public string Title { get; set; }
-        public string Poster { get; set; }
-        public string Year { get; set; }
-    }
 }
