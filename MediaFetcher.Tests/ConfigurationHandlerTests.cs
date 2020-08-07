@@ -21,5 +21,19 @@ namespace MediaFetcher.Tests
             Assert.Equal("value2", result2);
             Assert.Equal("", resultEmpty);
         }
+
+        [Fact]
+        public void CanStaticallyReadConfigurationValues()
+        {
+            // Act - Rquest the data
+            string result1 = ConfigurationHandler.GetConfigValue("key1", "config.json");
+            string result2 = ConfigurationHandler.GetConfigValue("key2", "config.json");
+            string resultEmpty = ConfigurationHandler.GetConfigValue("key3", "config.json");
+
+            // Assert
+            Assert.Equal("value1", result1);
+            Assert.Equal("value2", result2);
+            Assert.Equal("", resultEmpty);
+        }
     }
 }

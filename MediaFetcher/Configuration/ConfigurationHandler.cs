@@ -17,5 +17,11 @@ namespace MediaFetcher.Configuration
 
         public string GetConfigValue(string key) =>
             this.Configuration[key] ?? "";
+
+        public static string GetConfigValue(string key, string config_file_name = "appsettings.json")
+        {
+            ConfigurationHandler configuration = new ConfigurationHandler(config_file_name);
+            return configuration.GetConfigValue(key);
+        }
     }
 }
