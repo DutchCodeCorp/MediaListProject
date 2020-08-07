@@ -4,4 +4,15 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="DataServices\" />
+    <Folder Include="CacheHandler\" />
+    <Folder Include="Models\" />
+    <Folder Include="Configuration\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.6" />
+  </ItemGroup>
 </Project>
