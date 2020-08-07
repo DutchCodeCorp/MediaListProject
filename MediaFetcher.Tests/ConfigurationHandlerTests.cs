@@ -1,4 +1,4 @@
-using MediaFetcher.Configuration;
+using MediaFetcher.Data;
 using Xunit;
 
 namespace MediaFetcher.Tests

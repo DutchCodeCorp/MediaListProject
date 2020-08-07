@@ -2,7 +2,7 @@
 using System;
 
 
-namespace MediaFetcher.Configuration
+namespace MediaFetcher.Data
 {
     public class ConfigurationHandler
     {
